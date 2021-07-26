@@ -15,97 +15,24 @@
                 <th>支出</th>
                 <th>残額</th>
                 <th></th>
+                <th></th>
             </tr>
+            @foreach($lists as $list)
             <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
+                <td>{{ $list->date }}</td>
+                <td>{{ $list->item }}</td>
+                <td>{{ $list->income }}</td>
+                <td>{{ $list->expense }}</td>
+                <td>{{ $list->remains }}</td>
+                <td><a href="{{ route('create') }}" class="btn btn-primary">編集</a></td>
+                <form method="POST" action="{{ route('delete', $list->id) }}" onSubmit="return checkDelete()">
+                @method('DELETE')
                 @csrf
                 <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
+                </form>
             </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick="">削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
-            <tr>
-                <td>1/1</td>
-                <td><a href="#">hoge</a></td>
-                <td>100</td>
-                <td>100</td>
-                <td><button type="button" class="btn btn-primary" onclick="">編集</button></td>
-                <form method="POST" action="" onSubmit="return checkDelete()">
-                @csrf
-                <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
-            </tr>
+            @endforeach
+            
         </table>
     </div>
 </div>

@@ -12,7 +12,14 @@
 */
 
 // 一覧ページ
+
 Route::get('/', 'AccountBookController@index')->name('list');
 
 // 投稿ページ
 Route::get('/create', 'AccountBookController@create')->name('create');
+
+// 登録メソッド
+Route::post('/store', 'AccountBookController@store')->name('store');
+
+// 削除メソッド
+Route::delete('/delete/{id}', 'AccountBookController@delete')->name('delete');

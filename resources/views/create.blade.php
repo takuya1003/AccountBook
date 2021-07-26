@@ -9,13 +9,13 @@
             </div>
         @endif
         <h2>投稿フォーム</h2>
-        <form method="POST" action="" onSubmit="return checkSubmit()">
+        <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()">
         @csrf
             <div class="form-group">
                 <label for="">日付</label>
-                <input id="title" name="title" class="form-control" value="{{ old('title') }}" type="text">
+                <input id="title" name="date" class="form-control" value="{{ old('title') }}" type="text">
                 <label for="title">項目</label>
-                <input id="title" name="title" class="form-control" value="{{ old('title') }}" type="text">
+                <input id="title" name="item" class="form-control" value="{{ old('title') }}" type="text">
             </div>
             @if ($errors->has('content'))
                 <div class="text-danger">
@@ -24,18 +24,14 @@
             @endif
             <div class="form-group">
                 <label for="content">収入</label>
-                <input id="title" name="title" class="form-control" value="{{ old('title') }}" type="text">
+                <input id="title" name="income" class="form-control" value="{{ old('title') }}" type="text">
             </div>
             <div class="form-group">
                 <label for="content">支出</label>
-                <input id="title" name="title" class="form-control" value="{{ old('title') }}" type="text">
-            </div>
-            <div class="form-group">
-                <label for="content">残額</label>
-                <input id="title" name="title" class="form-control" value="{{ old('title') }}" type="text">
+                <input id="title" name="expense" class="form-control" value="{{ old('title') }}" type="text">
             </div>
             <div class="mt-5">
-                <a class="btn btn-secondary" href="">
+                <a class="btn btn-secondary" href="{{ route('list') }}">
                     キャンセル
                 </a>
                 <button type="submit" class="btn btn-primary">登録する</button>
